@@ -1,2 +1,136 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+
+:root {
+  --brand-ink: #1f1b16;
+  --brand-cream: #f6f1ea;
+  --brand-sand: #e9dccb;
+  --brand-accent: #c9824a;
+  --brand-blue: #1e88e5;
+  --brand-forest: #2b2722;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  color: var(--brand-ink);
+  background:
+    radial-gradient(1200px 800px at 10% -10%, #f8ede1 0%, transparent 60%),
+    radial-gradient(900px 700px at 95% 10%, #e7f0ff 0%, transparent 55%), var(--brand-cream);
+}
+
+img,
+picture,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+.display-title {
+  font-family: "Fraunces", "Times New Roman", serif;
+  font-size: clamp(2.25rem, 3vw + 1rem, 3.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.section-title {
+  font-family: "Fraunces", "Times New Roman", serif;
+  font-size: clamp(1.6rem, 1.3vw + 1.1rem, 2.4rem);
+  line-height: 1.2;
+}
+
+.section-kicker {
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--brand-ink) 65%, white 35%);
+}
+
+.card-soft {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(31, 27, 22, 0.08);
+  box-shadow: 0 20px 40px rgba(17, 16, 15, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.glass-panel {
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.35);
+  backdrop-filter: blur(12px);
+}
+
+.decor-grid {
+  background-image:
+    linear-gradient(rgba(31, 27, 22, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31, 27, 22, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.page-shell {
+  position: relative;
+}
+
+.page-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(600px 400px at 10% 30%, rgba(201, 130, 74, 0.08), transparent 60%),
+    radial-gradient(700px 500px at 90% 70%, rgba(30, 136, 229, 0.08), transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-shell > * {
+  position: relative;
+  z-index: 1;
+}
+
+.section-gap {
+  padding: clamp(2.5rem, 4vw, 4.5rem) 0;
+}
+
+.brand-button {
+  background-color: var(--brand-accent);
+  color: #fff;
+  border: 1px solid color-mix(in srgb, var(--brand-accent) 70%, #000 30%);
+  box-shadow: 0 12px 20px rgba(201, 130, 74, 0.25);
+}
+
+.brand-button:hover {
+  background-color: color-mix(in srgb, var(--brand-accent) 85%, #000 15%);
+}
+
+.brand-button-outline {
+  background-color: transparent;
+  color: var(--brand-ink);
+  border: 1px solid color-mix(in srgb, var(--brand-accent) 60%, #fff 40%);
+}
+
+.brand-button-outline:hover {
+  background-color: rgba(201, 130, 74, 0.12);
+}
+
+.nav-shell {
+  background: rgba(246, 241, 234, 0.9);
+  border-bottom: 1px solid rgba(31, 27, 22, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.footer-shell {
+  background: var(--brand-forest);
+  color: var(--brand-cream);
+}
+
+.footer-shell a {
+  color: var(--brand-sand);
+}
+
+.footer-shell a:hover {
+  color: #fff;
+}

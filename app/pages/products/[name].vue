@@ -11,50 +11,75 @@ const { data: post } = (await useAsyncData("products", () =>
 </script>
 
 <template>
-  <UContainer class="py-10">
-    <UCard v-if="post" class="max-w-4xl mx-auto p-6 shadow-lg">
-      <!-- Gambar Produk -->
-      <img
-        v-if="post.meta.image"
-        :src="post.meta.image"
-        :alt="post.title"
-        class="w-full h-72 object-cover rounded-lg mb-6"
-      />
+  <div class="page-shell">
+    <UContainer class="section-gap">
+      <div v-if="post" class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] items-start">
+        <div class="space-y-6">
+          <div class="rounded-2xl overflow-hidden card-soft">
+            <img v-if="post.meta.image" :src="post.meta.image" :alt="post.title" class="w-full h-80 object-cover" />
+          </div>
+          <div class="card-soft rounded-2xl p-6">
+            <div class="section-kicker">Deskripsi</div>
+            <h2 class="section-title mb-4">Detail Produk</h2>
+            <div class="prose max-w-none">
+              <ContentRenderer :value="post" />
+            </div>
+          </div>
+        </div>
 
-      <!-- Info Produk -->
-      <div class="mb-6 text-center">
-        <h1 class="text-4xl font-bold mb-2">{{ post.title }}</h1>
-        <p class="text-primary font-semibold text-2xl">{{ post.price }}</p>
-      </div>
+        <div class="space-y-6 lg:sticky lg:top-24">
+          <div class="card-soft rounded-2xl p-6 space-y-4">
+            <div>
+              <div class="section-kicker">Produk</div>
+              <h1 class="section-title">{{ post.title }}</h1>
+            </div>
+            <p class="text-primary font-semibold text-2xl">{{ post.meta.price }}</p>
+            <div class="space-y-2 text-sm text-gray-600">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">✅</span>
+                <span>Bisa custom ukuran dan warna sesuai ruang Anda.</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-lg">✅</span>
+                <span>Finishing rapi, tahan lama, mudah dibersihkan.</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-lg">✅</span>
+                <span>Konsultasi desain sebelum produksi dimulai.</span>
+              </div>
+            </div>
+          </div>
 
-      <!-- Deskripsi Produk -->
-      <div class="prose max-w-none">
-        <ContentRenderer :value="post" />
+          <div class="card-soft rounded-2xl p-6 text-center">
+            <div class="section-kicker">Konsultasi</div>
+            <p class="text-gray-600 mb-4">Tanyakan stok, estimasi produksi, dan jadwal pengiriman melalui WhatsApp.</p>
+            <div class="flex flex-col gap-3">
+              <UButton
+                size="lg"
+                icon="i-mdi-whatsapp"
+                variant="solid"
+                class="brand-button"
+                :to="'https://wa.me/+6285294775689?text=Halo, saya ingin membeli produk ' + post.title"
+                target="_blank"
+              >
+                Admin 1
+              </UButton>
+              <UButton
+                size="lg"
+                icon="i-mdi-whatsapp"
+                variant="solid"
+                class="brand-button"
+                :to="'https://wa.me/+6285129870863?text=Halo, saya ingin membeli produk ' + post.title"
+                target="_blank"
+              >
+                Admin 2
+              </UButton>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <!-- Tombol WhatsApp -->
-      <div class="flex justify-center items-center gap-2 mt-8 text-center">
-        <UButton
-          size="lg"
-          color="primary"
-          icon="i-mdi-whatsapp"
-          :to="'https://wa.me/+6285294775689?text=Halo, saya ingin membeli produk ' + post.title"
-          target="_blank"
-        >
-          Admin 1
-        </UButton>
-        <UButton
-          size="lg"
-          color="primary"
-          icon="i-mdi-whatsapp"
-          :to="'https://wa.me/+6285129870863?text=Halo, saya ingin membeli produk ' + post.title"
-          target="_blank"
-        >
-          Admin 2
-        </UButton>
-      </div>
-    </UCard>
-  </UContainer>
+    </UContainer>
+  </div>
 </template>
 
 <style scoped>

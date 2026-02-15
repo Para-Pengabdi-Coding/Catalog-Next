@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-gray-900 text-white py-10 mt-12">
+  <footer class="footer-shell py-10 mt-12">
     <UContainer>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Info Usaha -->
@@ -37,7 +37,7 @@
       </div>
 
       <!-- Copyright -->
-      <div class="mt-8 border-t border-gray-700 pt-4 text-center text-sm">
+      <div class="mt-8 border-t border-white/10 pt-4 text-center text-sm">
         &copy; {{ new Date().getFullYear() }} Toko Mebel Abadi Suar Jaya. Semua Hak Dilindungi.
       </div>
     </UContainer>
@@ -50,6 +50,6 @@
 
 <style scoped>
 footer img {
-  filter: brightness(0) invert(1); /* agar logo bank putih */
+  filter: brightness(0) invert(1);
 }
 </style>

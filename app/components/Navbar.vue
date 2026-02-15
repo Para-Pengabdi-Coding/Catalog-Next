@@ -19,20 +19,26 @@ const items = ref<NavigationMenuItem[]>([
 </script>
 
 <template>
-  <div class="w-full h-max flex justify-center items-center">
-    <img src="/images/logo/asj.png" alt="Logo" class="w-42" />
-  </div>
-  <UNavigationMenu
-    :items="items"
-    :ui="{
-      list: 'gap-5',
-    }"
-    class="w-full justify-center min-h-16"
-  />
+  <header class="nav-shell sticky top-0 z-20">
+    <UContainer class="py-4">
+      <div class="w-full flex flex-col items-center gap-3">
+        <UNavigationMenu
+          :items="items"
+          color="neutral"
+          variant="link"
+          :highlight="false"
+          :ui="{
+            list: 'gap-5',
+          }"
+          class="w-full justify-center min-h-12"
+        />
+      </div>
+    </UContainer>
+  </header>
 </template>
 
 <style scoped>
 img {
-  filter: brightness(0) invert(0); /* agar logo bank putih */
+  filter: none;
 }
 </style>
